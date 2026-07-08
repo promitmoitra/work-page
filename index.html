@@ -90,8 +90,22 @@
   p{margin:0 0 14px}
 
   /* ---- Now / company cards ---- */
-  .now-lead{font-size:1.12rem;color:var(--muted);max-width:64ch;margin:0 0 34px}
+  .now-lead{font-size:1.12rem;color:var(--muted);max-width:66ch;margin:0 0 30px}
   .now-lead strong{color:var(--ink)}
+
+  /* featured (flagship) card */
+  .feature{
+    position:relative;background:var(--surface);border:1px solid var(--line);
+    border-radius:14px;padding:30px 30px 30px 34px;margin:0 0 20px;overflow:hidden;
+  }
+  .feature::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--accent-soft)}
+  .feature .kicker{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-soft);font-weight:700;margin:0 0 10px}
+  .feature h3{font-family:var(--serif);font-size:1.5rem;margin:0 0 12px}
+  .feature p{color:var(--muted);font-size:1rem;margin:0 0 14px;max-width:74ch}
+  .feature .repo{font-size:.82rem;color:var(--faint);margin:0 0 16px}
+  .feature .repo code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.82rem;color:var(--muted)}
+
+  .subhead{font-size:.82rem;letter-spacing:.04em;color:var(--faint);margin:26px 0 14px;font-weight:600}
   .cards{display:grid;gap:20px;grid-template-columns:repeat(2,1fr)}
   @media (max-width:680px){.cards{grid-template-columns:1fr}}
   .card{
@@ -178,11 +192,40 @@
     <div class="wrap">
       <p class="sec-head">Now · Dognosis</p>
       <p class="now-lead">
-        At <strong>Dognosis</strong>, I help turn the canine sense of smell into a measurable
-        signal. My work spans the full acquisition stack — sensor hardware, synchronized
-        multi-stream recording, and the analysis pipelines that make the data usable —
-        across two systems.
+        At <strong>Dognosis</strong> I work across two threads. On the systems side I designed
+        and built <strong>otvcore</strong>, the traceable system of record for how our hardware
+        is designed, tested, and changed. On the data side I help turn the canine sense of smell
+        into a measurable signal — sensor hardware, synchronized multi-stream recording, and the
+        analysis pipelines that make it usable.
       </p>
+
+      <div class="feature">
+        <p class="kicker">Flagship · Design-history &amp; quality engine</p>
+        <h3>otvcore</h3>
+        <p>
+          A system that turns plain-language descriptions of engineering decisions into
+          controlled, auditable records — Operational Test &amp; Verification results,
+          Non-Conformity Reports, engineering change orders and SOPs — over a git-backed,
+          tamper-evident store where every mutation is a single verifiable commit and a
+          failed write rolls the whole change back. Architected as <em>one engine, three
+          clients</em>: a FastAPI service with a React/TypeScript UI, a command-line tool,
+          and an agent skill, kept from diverging by a shared core. Built test-first through
+          a human-gated, agent-assisted workflow — evidence before claims, changes behind
+          review — with the suite growing from 16 tests to 483 over twenty-six days.
+        </p>
+        <p class="repo">Dognosis GitLab · <code>dognosis/otvcore</code> + <code>dognosis/otvcore-records</code></p>
+        <div class="chips">
+          <span class="chip">FastAPI service</span>
+          <span class="chip">React · TypeScript</span>
+          <span class="chip">Git-backed audit trail</span>
+          <span class="chip">NCR · FMEA · ECO · SOP</span>
+          <span class="chip">Semver design history (PBS)</span>
+          <span class="chip">Test-first · 483 tests</span>
+          <span class="chip">CI quality gates</span>
+        </div>
+      </div>
+
+      <p class="subhead">The acquisition stack</p>
       <div class="cards">
         <div class="card">
           <p class="kicker">Olfaction platform</p>
@@ -229,7 +272,7 @@
           <p class="when">Present</p>
           <h3>Researcher — Neurotechnology</h3>
           <p class="where">Dognosis</p>
-          <p>Canine EEG and olfaction systems (SniffSpace, DogSense): sensor acquisition, multi-stream synchronization, and machine-learning analysis of neural and behavioral data.</p>
+          <p>Designed and built <strong>otvcore</strong>, a git-backed system of record for hardware design decisions and quality (OTV / NCR / ECO / SOP), as a FastAPI service, React/TypeScript UI, CLI and agent skill. Also work on the canine EEG and olfaction stack (SniffSpace, DogSense): sensor acquisition, multi-stream synchronization, and machine-learning analysis of neural and behavioral data.</p>
         </div>
         <div class="item">
           <p class="when">Oct 2022 – 2025</p>
@@ -310,11 +353,11 @@
           <h4>Languages &amp; Computing</h4>
           <ul>
             <li>Python</li>
-            <li>MATLAB</li>
-            <li>C++</li>
-            <li>Bash · Git</li>
-            <li>HPC job scheduling (PBS)</li>
-            <li>LaTeX</li>
+            <li>MATLAB · C++</li>
+            <li>TypeScript · React</li>
+            <li>FastAPI</li>
+            <li>Git · CI quality gates</li>
+            <li>Bash · HPC (PBS) · LaTeX</li>
           </ul>
         </div>
         <div>
