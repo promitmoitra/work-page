@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Promit Moitra — Researcher</title>
+<meta name="description" content="Promit Moitra — researcher in computational cognitive neuroscience and complex systems, building canine EEG and olfaction systems at Dognosis." />
+<style>
+  :root{
+    --bg:#f7f5f1;
+    --surface:#ffffff;
+    --ink:#1a1a1a;
+    --muted:#5f5b54;
+    --faint:#8a857c;
+    --line:#e4e0d8;
+    --accent:#7c4a2d;
+    --accent-soft:#b5764e;
+    --tag:#efeae1;
+    --max:960px;
+    --serif:Georgia,'Times New Roman',serif;
+    --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#14130f;
+      --surface:#1c1a16;
+      --ink:#ece8e0;
+      --muted:#b3ada1;
+      --faint:#847e72;
+      --line:#2c2a24;
+      --accent:#d79a6f;
+      --accent-soft:#c07f52;
+      --tag:#26231d;
+    }
+  }
+  :root[data-theme="light"]{
+    --bg:#f7f5f1;--surface:#ffffff;--ink:#1a1a1a;--muted:#5f5b54;--faint:#8a857c;
+    --line:#e4e0d8;--accent:#7c4a2d;--accent-soft:#b5764e;--tag:#efeae1;
+  }
+  :root[data-theme="dark"]{
+    --bg:#14130f;--surface:#1c1a16;--ink:#ece8e0;--muted:#b3ada1;--faint:#847e72;
+    --line:#2c2a24;--accent:#d79a6f;--accent-soft:#c07f52;--tag:#26231d;
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:var(--sans);line-height:1.65;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  }
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+
+  /* ---- Header ---- */
+  header{padding:72px 0 40px;border-bottom:1px solid var(--line)}
+  .eyebrow{
+    font-size:12px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--accent-soft);font-weight:600;margin:0 0 14px;
+  }
+  h1{
+    font-family:var(--serif);font-weight:600;
+    font-size:clamp(2.6rem,7vw,4.2rem);line-height:1.02;
+    margin:0 0 18px;letter-spacing:-.01em;
+  }
+  .lede{
+    font-size:clamp(1.05rem,2.3vw,1.28rem);color:var(--muted);
+    max-width:60ch;margin:0 0 26px;
+  }
+  .lede strong{color:var(--ink);font-weight:600}
+  .links{display:flex;flex-wrap:wrap;gap:10px}
+  .links a{
+    display:inline-flex;align-items:center;gap:7px;
+    border:1px solid var(--line);background:var(--surface);
+    padding:8px 14px;border-radius:999px;font-size:.9rem;
+    color:var(--ink);transition:border-color .15s,transform .15s;
+  }
+  .links a:hover{border-color:var(--accent-soft);text-decoration:none;transform:translateY(-1px)}
+  .links a span{color:var(--faint)}
+
+  /* ---- Sections ---- */
+  section{padding:56px 0;border-bottom:1px solid var(--line)}
+  .sec-head{
+    font-size:12px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--accent-soft);font-weight:700;margin:0 0 32px;
+  }
+  h2{font-family:var(--serif);font-weight:600;font-size:1.5rem;margin:0 0 6px;letter-spacing:-.01em}
+  h3{font-size:1.06rem;font-weight:650;margin:0 0 4px}
+  p{margin:0 0 14px}
+
+  /* ---- Now / company cards ---- */
+  .now-lead{font-size:1.12rem;color:var(--muted);max-width:64ch;margin:0 0 34px}
+  .now-lead strong{color:var(--ink)}
+  .cards{display:grid;gap:20px;grid-template-columns:repeat(2,1fr)}
+  @media (max-width:680px){.cards{grid-template-columns:1fr}}
+  .card{
+    background:var(--surface);border:1px solid var(--line);
+    border-radius:14px;padding:26px;
+  }
+  .card .kicker{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-soft);font-weight:700;margin:0 0 10px}
+  .card h3{font-family:var(--serif);font-size:1.28rem;margin-bottom:10px}
+  .card p{color:var(--muted);font-size:.96rem;margin-bottom:16px}
+  .chips{display:flex;flex-wrap:wrap;gap:7px}
+  .chip{background:var(--tag);color:var(--muted);font-size:.78rem;padding:4px 10px;border-radius:6px}
+
+  /* ---- Timeline ---- */
+  .tl{position:relative;padding-left:26px}
+  .tl::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:var(--line)}
+  .item{position:relative;padding:0 0 30px}
+  .item:last-child{padding-bottom:0}
+  .item::before{
+    content:"";position:absolute;left:-26px;top:6px;width:12px;height:12px;
+    border-radius:50%;background:var(--bg);border:2px solid var(--accent-soft);
+  }
+  .item .when{font-size:.82rem;color:var(--faint);letter-spacing:.03em;margin:0 0 4px}
+  .item .where{color:var(--muted);font-size:.95rem;margin:2px 0 8px}
+  .item p{color:var(--muted);font-size:.95rem;margin:0}
+
+  /* ---- Publications ---- */
+  .pub{padding:18px 0;border-top:1px solid var(--line);display:grid;grid-template-columns:64px 1fr;gap:18px;align-items:start}
+  .pub:first-of-type{border-top:none}
+  .pub .yr{font-family:var(--serif);font-size:1.15rem;color:var(--accent-soft);font-weight:600}
+  .pub .t{font-weight:600;margin:0 0 3px;color:var(--ink)}
+  .pub .m{font-size:.9rem;color:var(--faint);margin:0}
+  .pub .m em{color:var(--muted);font-style:italic}
+  @media (max-width:520px){.pub{grid-template-columns:1fr;gap:2px}.pub .yr{font-size:1rem}}
+
+  /* ---- Skills grid ---- */
+  .skills{display:grid;gap:24px;grid-template-columns:repeat(3,1fr)}
+  @media (max-width:680px){.skills{grid-template-columns:1fr}}
+  .skills h4{font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);margin:0 0 12px;font-weight:700}
+  .skills ul{list-style:none;margin:0;padding:0}
+  .skills li{padding:5px 0;font-size:.95rem;color:var(--muted);border-bottom:1px solid var(--line)}
+  .skills li:last-child{border-bottom:none}
+
+  /* ---- Beyond ---- */
+  .beyond{color:var(--muted);max-width:70ch;font-size:1rem}
+
+  footer{padding:44px 0 64px;text-align:center;color:var(--faint);font-size:.88rem}
+  footer a{color:var(--muted)}
+
+  .theme-toggle{
+    position:fixed;top:16px;right:16px;z-index:10;
+    border:1px solid var(--line);background:var(--surface);color:var(--ink);
+    width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:1rem;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .theme-toggle:hover{border-color:var(--accent-soft)}
+</style>
+</head>
+<body>
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark theme">◑</button>
+
+<header>
+  <div class="wrap">
+    <p class="eyebrow">Computational Cognitive Neuroscience · Complex Systems</p>
+    <h1>Promit Moitra</h1>
+    <p class="lede">
+      A researcher working across the boundary of <strong>physics and biology</strong> —
+      from the theory of nonlinear dynamics and complex systems, to computational
+      neuroscience, to applied neurotechnology. Currently building
+      <strong>canine EEG and olfaction systems</strong> at Dognosis.
+    </p>
+    <nav class="links">
+      <a href="mailto:promitmoitra@gmail.com">Email</a>
+      <a href="https://scholar.google.com/citations?user=c07eJpQAAAAJ&hl=en" target="_blank" rel="noopener">Google&nbsp;Scholar</a>
+      <a href="https://orcid.org/0000-0002-8533-7993" target="_blank" rel="noopener">ORCID <span>0000-0002-8533-7993</span></a>
+      <a href="https://github.com/promitmoitra" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://sites.google.com/view/promitmoitra" target="_blank" rel="noopener">Personal&nbsp;site</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- NOW -->
+  <section id="now">
+    <div class="wrap">
+      <p class="sec-head">Now · Dognosis</p>
+      <p class="now-lead">
+        At <strong>Dognosis</strong>, I help turn the canine sense of smell into a measurable
+        signal. My work spans the full acquisition stack — sensor hardware, synchronized
+        multi-stream recording, and the analysis pipelines that make the data usable —
+        across two systems.
+      </p>
+      <div class="cards">
+        <div class="card">
+          <p class="kicker">Olfaction platform</p>
+          <h3>SniffSpace</h3>
+          <p>
+            A scent-detection platform where trained dogs evaluate samples while their
+            physiology is recorded. I contribute to the multi-sensor acquisition pipeline —
+            EEG, respiration, IMU and video — with Lab Streaming Layer synchronization,
+            session logging, and data-quality verification across recording runs.
+          </p>
+          <div class="chips">
+            <span class="chip">Lab Streaming Layer</span>
+            <span class="chip">Multi-sensor sync</span>
+            <span class="chip">Signal QC</span>
+            <span class="chip">Data pipeline</span>
+          </div>
+        </div>
+        <div class="card">
+          <p class="kicker">Canine brain–computer interface</p>
+          <h3>DogSense</h3>
+          <p>
+            A wearable EEG system for dogs: a 3D-printed TPU helmet with a defined
+            electrode montage, spring-loaded holders and an integrated amplifier. I work on
+            signal acquisition and clock synchronization, and on machine-learning models
+            that classify neural responses from the recorded EEG.
+          </p>
+          <div class="chips">
+            <span class="chip">EEG hardware</span>
+            <span class="chip">Electrode montage</span>
+            <span class="chip">CNN classification</span>
+            <span class="chip">Signal processing</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="wrap">
+      <p class="sec-head">Research Path</p>
+      <div class="tl">
+        <div class="item">
+          <p class="when">Present</p>
+          <h3>Researcher — Neurotechnology</h3>
+          <p class="where">Dognosis</p>
+          <p>Canine EEG and olfaction systems (SniffSpace, DogSense): sensor acquisition, multi-stream synchronization, and machine-learning analysis of neural and behavioral data.</p>
+        </div>
+        <div class="item">
+          <p class="when">Oct 2022 – 2025</p>
+          <h3>Postdoctoral Researcher</h3>
+          <p class="where">Decision Lab, IIT Kanpur</p>
+          <p>Studied the neural correlates of stress using a patch-foraging behavioral paradigm, combining EEG with behavioral analysis and applying convolutional neural networks to classify responses from EEG data.</p>
+        </div>
+        <div class="item">
+          <p class="when">Nov 2019 – Sep 2022</p>
+          <h3>Postdoctoral Fellow</h3>
+          <p class="where">Institute for Plasma Research, Gandhinagar · Basic Theory &amp; Simulation Division</p>
+          <p>Modeled excitable media with cellular automata, showing how local timescales shape spatiotemporal dynamics — published in <em>Chaos, Solitons &amp; Fractals</em> (2022).</p>
+        </div>
+        <div class="item">
+          <p class="when">2012 – 2019</p>
+          <h3>Integrated MS–PhD, Physics</h3>
+          <p class="where">IISER Mohali · Supervisor: Prof. Sudeshna Sinha</p>
+          <p>Thesis: <em>Dynamics on Spatially Extended Systems</em>. Research on nonlinear dynamics, chaos, complex networks, and models of disease spread and persistence of infection.</p>
+        </div>
+        <div class="item">
+          <p class="when">2009 – 2012</p>
+          <h3>BSc, Physics (First Class)</h3>
+          <p class="where">Loyola College, Chennai</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section id="publications">
+    <div class="wrap">
+      <p class="sec-head">Selected Publications</p>
+
+      <div class="pub">
+        <div class="yr">2022</div>
+        <div>
+          <p class="t"><a href="https://doi.org/10.1016/j.chaos.2022.112418" target="_blank" rel="noopener">Impact of local timescales in a cellular automata model of excitable media</a></p>
+          <p class="m">P. Moitra, A. Sen · <em>Chaos, Solitons &amp; Fractals</em>, 162, 112418</p>
+        </div>
+      </div>
+      <div class="pub">
+        <div class="yr">2019</div>
+        <div>
+          <p class="t"><a href="https://doi.org/10.1038/s41598-019-56616-3" target="_blank" rel="noopener">Localized spatial distribution of disease phases yields long-term persistence of infection</a></p>
+          <p class="m">P. Moitra, S. Sinha · <em>Scientific Reports</em>, 9, 20309</p>
+        </div>
+      </div>
+      <div class="pub">
+        <div class="yr">2019</div>
+        <div>
+          <p class="t"><a href="https://doi.org/10.1063/1.5063926" target="_blank" rel="noopener">Emergence of extreme events in parametrically coupled chaotic oscillators</a></p>
+          <p class="m">P. Moitra, S. Sinha · <em>Chaos: An Interdisciplinary Journal of Nonlinear Science</em>, 29, 023131</p>
+        </div>
+      </div>
+      <div class="pub">
+        <div class="yr">2018</div>
+        <div>
+          <p class="t"><a href="https://doi.org/10.1209/0295-5075/121/60001" target="_blank" rel="noopener">Anticipating persistent infection</a></p>
+          <p class="m">P. Moitra, K. Jain, S. Sinha · <em>Europhysics Letters</em>, 121, 60001</p>
+        </div>
+      </div>
+      <div class="pub">
+        <div class="yr">2017</div>
+        <div>
+          <p class="t"><a href="http://doi.org/10.1038/srep41582" target="_blank" rel="noopener">Emergence of persistent infection due to heterogeneity</a></p>
+          <p class="m">V. Agrawal, P. Moitra, S. Sinha · <em>Scientific Reports</em>, 7, 41582</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="wrap">
+      <p class="sec-head">Toolkit</p>
+      <div class="skills">
+        <div>
+          <h4>Languages &amp; Computing</h4>
+          <ul>
+            <li>Python</li>
+            <li>MATLAB</li>
+            <li>C++</li>
+            <li>Bash · Git</li>
+            <li>HPC job scheduling (PBS)</li>
+            <li>LaTeX</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Neuro &amp; Signals</h4>
+          <ul>
+            <li>EEG acquisition &amp; analysis</li>
+            <li>Lab Streaming Layer</li>
+            <li>Multi-sensor synchronization</li>
+            <li>Behavioral paradigms</li>
+            <li>Signal quality control</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Modeling &amp; ML</h4>
+          <ul>
+            <li>Convolutional neural networks</li>
+            <li>Nonlinear dynamics &amp; chaos</li>
+            <li>Complex networks (NetworkX)</li>
+            <li>Genetic algorithms (DEAP)</li>
+            <li>Pandas · scientific Python</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BEYOND -->
+  <section id="beyond">
+    <div class="wrap">
+      <p class="sec-head">Beyond the Lab</p>
+      <p class="beyond">
+        I served as a reviewer for <em>AIP Chaos</em> (2022) and have moderated science-communication
+        sessions at the India Science Festival, including a conversation on quantum computing with
+        Ilyas Khan. Away from research, I've trained for 15+ years in Indian classical music, sung lead
+        for a college rock band, debated at the national level, and captained a school football team.
+      </p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Promit Moitra · <a href="mailto:promitmoitra@gmail.com">promitmoitra@gmail.com</a></p>
+    <p><a href="https://scholar.google.com/citations?user=c07eJpQAAAAJ&hl=en" target="_blank" rel="noopener">Scholar</a> · <a href="https://orcid.org/0000-0002-8533-7993" target="_blank" rel="noopener">ORCID</a> · <a href="https://github.com/promitmoitra" target="_blank" rel="noopener">GitHub</a></p>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var btn=document.getElementById('themeToggle');
+    var root=document.documentElement;
+    function apply(t){
+      if(t){root.setAttribute('data-theme',t);}
+      else{root.removeAttribute('data-theme');}
+    }
+    try{apply(localStorage.getItem('theme'));}catch(e){}
+    btn.addEventListener('click',function(){
+      var cur=root.getAttribute('data-theme');
+      var sysDark=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var next=cur? (cur==='dark'?'light':'dark') : (sysDark?'light':'dark');
+      apply(next);
+      try{localStorage.setItem('theme',next);}catch(e){}
+    });
+  })();
+</script>
+</body>
+</html>
