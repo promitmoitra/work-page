@@ -305,6 +305,26 @@
           </div>
         </div>
         <div class="card">
+          <p class="kicker">Neuroimaging · MRI/CT pipeline &amp; atlas</p>
+          <h3>k9mri-tools</h3>
+          <p>
+            An end-to-end canine MRI/CT processing, audit and normalisation engine:
+            converted 13 clinical studies (112 series) to BIDS with on-the-fly pydicom
+            decoding for J2K-lossless CTs, audited voxel geometry via mirror symmetry
+            (0 defects across 110 volumes), and achieved r = 0.862 / Dice = 0.887
+            nonlinear SyN registration to the Cornell 262-region canine atlas via a
+            mask-confined objective.
+          </p>
+          <div class="chips">
+            <span class="chip">BIDS conversion</span>
+            <span class="chip">Mirror-symmetry audit</span>
+            <span class="chip">dipy SyN registration</span>
+            <span class="chip">Cornell Canine Atlas</span>
+            <span class="chip">FSL · ANTs · AFNI</span>
+            <span class="chip">Pseudonymised</span>
+          </div>
+        </div>
+        <div class="card">
           <p class="kicker">Neuro · signal processing &amp; ML</p>
           <h3>Canine EEG studies</h3>
           <p>
@@ -349,7 +369,7 @@
           <p class="when">Present</p>
           <h3>Data &amp; ML Engineer</h3>
           <p class="where">Dognosis</p>
-          <p>Top contributor to the production backend (<strong>dogapi</strong>): sole-authored the dataset-generation and session-validation vertical that fuses multi-sensor recordings into ML-ready training data. Designed and built <strong>otvcore</strong>, a git-backed design-control system of record (OTV / NCR / ECO / SOP) as a FastAPI service, React/TypeScript UI, CLI and agent skill. Also work across the canine EEG and olfaction stack (SniffSpace, DogSense): sensor acquisition, multi-stream synchronization, and machine-learning analysis of neural and behavioral data.</p>
+          <p>Top contributor to the production backend (<strong>dogapi</strong>): sole-authored the dataset-generation and session-validation vertical that fuses multi-sensor recordings into ML-ready training data. Designed and built <strong>otvcore</strong> (git-backed design control) and <strong>k9mri-tools</strong> (canine MRI/CT BIDS conversion, voxel-level geometry auditing, and SyN atlas normalisation). Also work across the canine EEG and olfaction stack (SniffSpace, DogSense): sensor acquisition, multi-stream synchronization, and machine-learning analysis of neural and behavioral data.</p>
         </div>
         <div class="item">
           <p class="when">Oct 2022 – 2025</p>
@@ -448,6 +468,8 @@
           <h4>Signals &amp; Neuro</h4>
           <ul>
             <li>EEG · respiration · IMU processing</li>
+            <li>MRI / CT processing &amp; BIDS</li>
+            <li>FSL · ANTs · AFNI · dipy</li>
             <li>Lab Streaming Layer</li>
             <li>Multi-sensor fusion &amp; clock sync</li>
             <li>SciPy · MNE-Python</li>
